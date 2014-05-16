@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>A'weSome LightBox Alternatives</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="lists">
+            <ul>
+                <li>
+                    <img src="http://lorempixel.com/200/150/sports" alt="">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/200/150/food" alt="">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/200/150/cats" alt="">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/200/150/city" alt="">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/200/150/transport" alt="">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/200/150/people" alt="">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/200/150/nature" alt="">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/200/150/fashion" alt="">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/200/150/business" alt="">
+                </li>
+            </ul>
+        </div>
+        <div style="clear:both"></div>
+        <h2>Awe'some Popup</h2>
+        <p>
+            200% Free to Use
+        </p>
+        <h3>What about Installation????</h3>
+        <p>Its crazy the code is not available under github.... I need money Please help me with lots of bucks</p>
+
+        <div class="loaderbg" style="display:none">
+            <div class="popup">
+                <img src="http://lorempixel.com/700/500/" alt="">
+                <span class="close">
+                    X
+                </span>
+            </div>
+        </div>
+
+        <script src="js/jquery.js"></script>
+        <script>
+                    /*==============doc ready========================*/
+                    $(document).ready(function(){
+                        //declaring the dom elam
+                        var popupbg = $('.loaderbg');
+                        /*==============click handler for li imaged========================*/
+                        $('li img').on('click',managePopup);
+                        /*==================================================================*/
+                                /*=====================Begin Function================*/
+                        /*==============================================================*/
+                        function managePopup(e){
+                            e.preventDefault();
+                            var imgsrc = $(this).attr('src');
+                            appendImg = imgsrc.replace('200/150','700/500');
+                            // console.log(appendImg);
+                            $('.popup').find('img').attr('src',appendImg);
+                            popupbg.fadeIn(500);
+
+                        }
+                        /*====================================================================================*/
+                            /*========================END OF THE FUNcTION =======================*/
+                        /*====================================================================================*/
+
+
+
+                        popupbg.find('.close').on('click',closePopup);
+
+                        /*==============function close popup========================*/
+                        function closePopup(){
+                            $(popupbg).fadeOut(500);
+                        }
+
+                        /*==============close popup on click outside========================*/
+                        $(document).click(function(e){
+                            clsName = e.target.className;
+                           if(clsName == 'loaderbg'){
+                                closePopup();
+                           }
+
+
+                        })
+
+                    });
+                    /*==============end doc ready========================*/
+        </script>
+    </body>
+</html>
